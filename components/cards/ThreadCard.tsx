@@ -69,7 +69,8 @@ function ThreadCard({
 
             <p className='mt-2 text-small-regular text-light-2'>{content}</p>
 
-            <div className={`${isComment && "mb-10"} mt-5 flex flex-col gap-3`}>
+            <div className={`${isComment && "mb-10"} mt-5 flex flex-col text-gray-1 gap-3`}>
+              {formatDateString(createdAt)}
               <div className='flex gap-3.5'>
                 <Image
                   src='/assets/heart-gray.svg'
@@ -106,7 +107,8 @@ function ThreadCard({
               {isComment && comments.length > 0 && (
                 <Link href={`/thread/${id}`}>
                   <p className='mt-1 text-subtle-medium text-gray-1'>
-                    {comments.length} repl{comments.length > 1 ? "ies" : "y"}
+                  {formatDateString(createdAt)}
+                  {" "}- {comments.length} repl{comments.length > 1 ? "ies" : "y"}
                   </p>
                 </Link>
               )}
@@ -138,7 +140,8 @@ function ThreadCard({
 
           <Link href={`/thread/${id}`}>
             <p className='mt-1 text-subtle-medium text-gray-1'>
-              {comments.length} repl{comments.length > 1 ? "ies" : "y"}
+            {formatDateString(createdAt)}
+            {" "}- {comments.length} repl{comments.length > 1 ? "ies" : "y"}
             </p>
           </Link>
         </div>
@@ -151,7 +154,7 @@ function ThreadCard({
         >
           <p className='text-subtle-medium text-gray-1'>
             {formatDateString(createdAt)}
-            {community && ` - ${community.name} Community`}
+            {" "}- {community && ` - ${community.name} Community`}
           </p>
 
           <Image
